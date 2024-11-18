@@ -5,9 +5,12 @@ function App() {
     <div>
       <Header/>
       <Playlist/>
-      <Container/>
-      <Container2/>
-      <Container3/>
+      <Container title="링딩동"
+      index = '1'/>
+      <Container title="루시퍼"
+      index = '2'/>
+      <Container title="독도는 우리땅"
+      index = '3'/>
     </div>
   )
 }
@@ -26,45 +29,15 @@ function Playlist() {
   )
 }
 
-function Container() {
+function Container(props) {
   return (
     <div className='container'>
-        <a href="https://www.youtube.com/results?search_query=링딩동">
+        <a href={`https://www.youtube.com/results?search_query=${props.title}`} target="_black">
           <img 
-            src='https://picsum.photos/600/150?random=1'
-            alt='랜덤 이미지 1'/>
+            src={`https://picsum.photos/600/150?random=${props.index}`}
+            alt={`${props.title} 이미지`}/>
           <div className='song-title'>
-            링딩동
-          </div>
-        </a>
-    </div>
-  )
-}
-
-function Container2() {
-  return (
-    <div className='container'>
-        <a href="https://www.youtube.com/results?search_query=루시퍼">
-          <img 
-            src='https://picsum.photos/600/150?random=2'
-            alt='랜덤 이미지 2'/>
-          <div className='song-title'>
-            루시퍼
-          </div>
-        </a>
-    </div>
-  )
-}
-
-function Container3() {
-  return (
-    <div className='container'>
-        <a href="https://www.youtube.com/results?search_query=루시퍼">
-          <img 
-            src='https://picsum.photos/600/150?random=3'
-            alt='랜덤 이미지 3'/>
-          <div className='song-title'>
-            독도는 우리땅
+            {props.title}
           </div>
         </a>
     </div>
