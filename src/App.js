@@ -3,10 +3,36 @@ import Container from './Container.js'
 
 const App = () => {
   const songs = [
-    "링딩동",
-    "루시퍼",
-    "독도는 우리땅",
+    {
+      id: 1,
+      title: "TT",
+      singer: "트와이스",
+      rating: 5,
+      lyrics: `사랑에 연습이 있었다면
+우리는 달라졌을까
+내가 널 만난 시간 혹은 그 장소
+상황이 달랐었다면 우린 맺어졌을까
+하필 넌 왜 내가 그렇게 철없던 시절에
+나타나서 그렇게 예뻤니
+너처럼 좋은여자가 왜 날 만나서 그런
+과분한 사랑 내게 줬는지`,
+    },
+    {
+      id: 2,
+      title: "네모네모",
+      singer: "최예나",
+      rating: 3,
+      lyrics: null,
+    },
+    {
+      id: 3,
+      title: "챔피언",
+      singer: "싸이",
+      rating: 3,
+      lyrics: null,
+    },
   ]
+
   return (
     <div>
       <Header/>
@@ -30,12 +56,9 @@ const Playlist = (props) => {
         {props.title}
       </div>
       {
-        props.listSong.map((song, index) => (//{retrun ()}와 같음
-          <Container
-          key={index}
-          title={song} 
-          index={index}/>
-        ))
+        props.listSong.map(song =>
+          <Container key={song.id} song={song}/>
+        )
       }
     </div>
   )
